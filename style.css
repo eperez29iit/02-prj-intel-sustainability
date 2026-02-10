@@ -1,1 +1,291 @@
-/* Add your CSS here */
+/* ============================================
+   INTEL SUSTAINABILITY TIMELINE - STYLESHEET
+   ============================================ */
+
+/* ============================================
+   COLOR PALETTE & BRAND COLORS
+   ============================================ */
+
+:root {
+  /* Intel Brand Colors */
+  --intel-blue: #0071C5;           /* Primary Intel Blue */
+  --intel-dark-blue: #003D82;      /* Darker shade for accents */
+  --intel-light: #F5F5F5;          /* Light background */
+  
+  /* Sustainability Colors */
+  --green-accent: #4CAF50;         /* Green for sustainability theme */
+  --light-green: #E8F5E9;          /* Very light green background */
+  
+  /* Neutral Colors */
+  --white: #FFFFFF;
+  --dark-gray: #333333;            /* Main text color */
+  --light-gray: #CCCCCC;           /* Borders and dividers */
+}
+
+/* ============================================
+   GLOBAL STYLES & BODY
+   ============================================ */
+
+* {
+  /* Reset margins and padding */
+  margin: 0;
+  padding: 0;
+  /* Use border-box for easier sizing */
+  box-sizing: border-box;
+}
+
+body {
+  /* Font settings */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  
+  /* Colors */
+  color: var(--dark-gray);
+  background-color: var(--intel-light);
+}
+
+/* ============================================
+   HEADER & HERO SECTION
+   ============================================ */
+
+header {
+  /* Background with Intel brand color */
+  background: linear-gradient(135deg, var(--intel-blue) 0%, var(--intel-dark-blue) 100%);
+  
+  /* Color for text inside header */
+  color: var(--white);
+  
+  /* Padding for spacing */
+  padding: 60px 20px;
+  
+  /* Center alignment for all content */
+  text-align: center;
+}
+
+header div {
+  /* Container for header content */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   LOGO STYLING
+   ============================================ */
+
+header img {
+  /* Logo sizing - makes it visible but not too large */
+  width: 100px;
+  height: auto;
+  
+  /* Add some space below the logo */
+  margin-bottom: 30px;
+  
+  /* Smooth filter for professional look */
+  filter: brightness(0) invert(1);
+}
+
+/* ============================================
+   MAIN HEADING (H1)
+   ============================================ */
+
+header h1 {
+  /* Typography */
+  font-size: 48px;
+  font-weight: bold;
+  
+  /* Spacing */
+  margin-bottom: 20px;
+  
+  /* Letter spacing for modern look */
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   SUBHEADING (Description Paragraph)
+   ============================================ */
+
+header p {
+  /* Typography */
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.8;
+  
+  /* Color - slightly transparent white for elegance */
+  color: rgba(255, 255, 255, 0.95);
+  
+  /* Max width for readability */
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   TIMELINE CARDS SECTION
+   ============================================ */
+
+section {
+  /* Flexbox layout for timeline cards */
+  display: flex;
+  flex-direction: row;              /* Cards flow horizontally */
+  flex-wrap: nowrap;                /* Don't wrap cards - allow scrolling */
+  gap: 20px;
+  
+  /* Allow horizontal scrolling on large screens */
+  overflow-x: auto;                 /* Scroll horizontally */
+  overflow-y: hidden;               /* Hide vertical scroll */
+  
+  /* Alignment */
+  align-items: stretch;             /* Cards stretch to fill height */
+  
+  /* Padding for spacing from edges */
+  padding: 40px 20px;
+  
+  /* Background color */
+  background-color: var(--white);
+}
+
+/* ============================================
+   TIMELINE CARD STYLING
+   ============================================ */
+
+section div {
+  /* Flexbox properties for card sizing */
+  flex: 0 0 300px;                  /* Don't shrink, fixed 300px width for scrolling */
+  
+  /* Padding inside card */
+  padding: 30px;
+  
+  /* Border styling */
+  border: 2px solid var(--light-gray);
+  border-radius: 8px;
+  
+  /* Background color */
+  background-color: var(--intel-light);
+  
+  /* Shadow for depth */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  /* Smooth transition for hover effects */
+  transition: all 0.3s ease;
+  
+  /* Display flex for internal content alignment */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover effect for interactivity */
+section div:hover {
+  /* Lift the card slightly */
+  transform: translateY(-5px);
+  
+  /* Enhance the shadow */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  
+  /* Add a green accent border on hover */
+  border-color: var(--green-accent);
+}
+
+/* ============================================
+   CARD HEADINGS STYLING
+   ============================================ */
+
+section h2 {
+  /* Year heading - prominent */
+  font-size: 32px;
+  color: var(--intel-blue);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+section h3 {
+  /* Card title */
+  font-size: 20px;
+  color: var(--intel-dark-blue);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+section p {
+  /* Card description text */
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--dark-gray);
+  /* Allow text to grow and push content */
+  flex-grow: 1;
+}
+
+/* ============================================
+   MILESTONE IMAGE STYLING
+   ============================================ */
+
+.milestone-image {
+  /* Image dimensions */
+  width: 100%;
+  height: 180px;
+  
+  /* Styling */
+  object-fit: cover;                /* Crop image to fit without distortion */
+  border-radius: 6px;
+  margin-bottom: 15px;
+  
+  /* Hidden by default - reveal on hover */
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  
+  /* Smooth transition for reveal effect */
+  transition: opacity 0.4s ease, max-height 0.4s ease, margin-bottom 0.4s ease;
+}
+
+/* Show images on card hover */
+section div:hover .milestone-image {
+  /* Make image visible */
+  opacity: 1;
+  max-height: 200px;
+  margin-bottom: 15px;
+}
+
+/* ============================================
+   FOOTER HINT TEXT
+   ============================================ */
+
+body > p {
+  /* Styling for the "Scroll to view timeline" hint */
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: var(--intel-blue);
+  font-weight: 500;
+  background-color: var(--light-green);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Adjust header for smaller screens */
+  header {
+    padding: 40px 15px;
+  }
+  
+  header h1 {
+    font-size: 32px;
+  }
+  
+  header p {
+    font-size: 16px;
+  }
+  
+  /* Stack cards vertically on mobile */
+  section {
+    flex-direction: column;           /* Switch to vertical stacking */
+    flex-wrap: wrap;                  /* Allow wrapping if needed */
+    overflow-x: visible;              /* No horizontal scroll on mobile */
+    padding: 20px 15px;
+  }
+  
+  section div {
+    flex: 1 1 100%;                   /* Full width, grow/shrink as needed */
+  }
+}
