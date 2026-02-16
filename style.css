@@ -238,7 +238,7 @@ header p {
 }
 
 /* Show images on card hover */
-section div:hover .milestone-image {
+.timeline-section div:hover .milestone-image {
   /* Make image visible */
   opacity: 1;
   max-height: 200px;
