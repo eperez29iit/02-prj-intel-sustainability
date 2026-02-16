@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <!-- Bootstrap CSS for responsive grid system and RTL support -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -28,7 +30,7 @@
   </header>
 
   <!-- Timeline Cards Section -->
-  <section>
+  <section class="timeline-section">
 
     <!-- Card 1: 1968 -->
     <div>
@@ -143,5 +145,196 @@
     </div>
   </section>
   <p>Scroll to view timeline | Hover over cards to learn more!</p>
+
+  <!-- Bootstrap Three-Column Section -->
+  <section class="container-fluid py-5" style="background-color: var(--intel-light);">
+    <!-- Container centers content with max-width (responsive on mobile) -->
+    <div class="container">
+      <!-- Row creates a horizontal layout for columns -->
+      <div class="row g-4">
+        
+        <!-- Column 1: RISE Strategy -->
+        <!-- col-lg-4 = 1/3 width on large screens, col-md-12 = full width on tablets -->
+        <div class="col-lg-4 col-md-12">
+          <div class="p-4 bg-white rounded shadow-sm h-100">
+            <h2 class="text-primary mb-3">RISE Strategy</h2>
+            <p>
+              Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy, 
+              Intel sets ambitious 2030 goals, including driving industry-wide 
+              progress on climate action, water stewardship, and waste reduction.
+            </p>
+            <!-- Learn More Button -->
+            <a href="#" class="btn btn-primary mt-3">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Column 2: Commitment -->
+        <!-- col-lg-4 = 1/3 width on large screens, col-md-12 = full width on tablets -->
+        <div class="col-lg-4 col-md-12">
+          <div class="p-4 bg-white rounded shadow-sm h-100">
+            <h2 class="text-primary mb-3">Commitment</h2>
+            <p>
+              In 2022, Intel pledged to achieve net-zero greenhouse gas emissions 
+              (Scope 1 and 2) by 2040. This commitment builds on decades of 
+              environmental initiatives and partnerships across the semiconductor 
+              industry.
+            </p>
+            <!-- Learn More Button -->
+            <a href="#" class="btn btn-primary mt-3">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Column 3: Water & Waste -->
+        <!-- col-lg-4 = 1/3 width on large screens, col-md-12 = full width on tablets -->
+        <div class="col-lg-4 col-md-12">
+          <div class="p-4 bg-white rounded shadow-sm h-100">
+            <h2 class="text-primary mb-3">Water &amp; Waste</h2>
+            <p>
+              Intel conserves billions of gallons of water annually and 
+              collaborates with local communities to restore watersheds.
+              Intel also upcycles and recycles materials to reduce waste and 
+              advance a circular economy.
+            </p>
+            <!-- Learn More Button -->
+            <a href="#" class="btn btn-primary mt-3">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Subscription Section -->
+  <section class="container-fluid py-5" style="background: linear-gradient(135deg, var(--intel-blue) 0%, var(--intel-dark-blue) 100%);">
+    <!-- Container centers content -->
+    <div class="container">
+      <!-- Centered content wrapper -->
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 text-center">
+          <!-- Section Heading -->
+          <h2 class="text-white mb-3">Stay Updated on Sustainability</h2>
+          
+          <!-- Section Description -->
+          <p class="text-white mb-4">
+            Subscribe to Intel's sustainability newsletter to receive the latest updates on 
+            our environmental initiatives, achievements, and industry collaboration.
+          </p>
+
+          <!-- Newsletter Form -->
+          <form>
+            <!-- Email Input Container -->
+            <div class="mb-3">
+              <!-- Email Label -->
+              <label for="email-input" class="form-label text-white">Email Address</label>
+              
+              <!-- Email Input Field -->
+              <input 
+                type="email" 
+                class="form-control" 
+                id="email-input" 
+                placeholder="Enter your email address"
+                required
+              />
+            </div>
+
+            <!-- Subscribe Button -->
+            <button type="submit" class="btn btn-light btn-lg w-100">
+              Subscribe Now
+            </button>
+          </form>
+
+          <!-- Privacy Notice -->
+          <p class="text-white-50 small mt-3">
+            We respect your privacy. Unsubscribe at any time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-dark text-white-50 py-5">
+    <!-- Container for footer content -->
+    <div class="container">
+      <!-- Footer content grid -->
+      <div class="row mb-4">
+        
+        <!-- Column 1: About / Description -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <!-- Footer Brand/Title -->
+          <h5 class="text-white mb-3">Intel Sustainability</h5>
+          <!-- Footer Description -->
+          <p class="small">
+            Explore Intel's commitment to environmental responsibility, 
+            innovation, and sustainable semiconductor manufacturing practices 
+            for a better future.
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <!-- Section Title -->
+          <h5 class="text-white mb-3">Quick Links</h5>
+          <!-- Navigation Links -->
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="#" class="text-white-50 text-decoration-none">About Intel</a>
+            </li>
+            <li class="mb-2">
+              <a href="#" class="text-white-50 text-decoration-none">RISE Strategy</a>
+            </li>
+            <li class="mb-2">
+              <a href="#" class="text-white-50 text-decoration-none">Sustainability Report</a>
+            </li>
+            <li class="mb-2">
+              <a href="#" class="text-white-50 text-decoration-none">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Legal Links -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <!-- Section Title -->
+          <h5 class="text-white mb-3">Legal</h5>
+          <!-- Navigation Links -->
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a>
+            </li>
+            <li class="mb-2">
+              <a href="#" class="text-white-50 text-decoration-none">Terms of Use</a>
+            </li>
+            <li class="mb-2">
+              <a href="#" class="text-white-50 text-decoration-none">Cookie Policy</a>
+            </li>
+            <li class="mb-2">
+              <a href="#" class="text-white-50 text-decoration-none">Accessibility</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Divider Line -->
+      <hr class="bg-white-50 mb-4" />
+
+      <!-- Copyright / Bottom Row -->
+      <div class="row align-items-center">
+        <!-- Copyright Notice -->
+        <div class="col-md-6 mb-2 mb-md-0">
+          <p class="small mb-0">
+            &copy; 2024 Intel Corporation. All rights reserved.
+          </p>
+        </div>
+
+        <!-- Social Links (Placeholder) -->
+        <div class="col-md-6 text-md-end">
+          <span class="small">Follow Us: 
+            <a href="#" class="text-white-50 text-decoration-none ms-2">LinkedIn</a>
+            <a href="#" class="text-white-50 text-decoration-none ms-2">Twitter</a>
+            <a href="#" class="text-white-50 text-decoration-none ms-2">Facebook</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
