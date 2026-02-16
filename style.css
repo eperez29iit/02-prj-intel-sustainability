@@ -246,8 +246,27 @@ header p {
 }
 
 /* ============================================
-   FOOTER HINT TEXT
+   ACCESSIBILITY & CONTRAST IMPROVEMENTS
    ============================================ */
+
+/* Better contrast for secondary footer text */
+.text-white-50 {
+  /* Improved contrast - changed from 50% opacity to solid color */
+  color: #B8B8B8 !important;
+}
+
+/* Visually hide content but keep it for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 
 body > p {
   /* Styling for the "Scroll to view timeline" hint */

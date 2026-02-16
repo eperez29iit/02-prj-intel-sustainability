@@ -14,7 +14,7 @@
   <header>
     <div>
       <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" />
+      <img src="img/intel-header-logo.svg" alt="Intel Corporation logo" />
       <!-- Main Heading -->
       <h1>
         Sustainability Through the Ages
@@ -29,8 +29,11 @@
     </div>
   </header>
 
+  <!-- Main Content -->
+  <main>
+
   <!-- Timeline Cards Section -->
-  <section class="timeline-section">
+  <section class="timeline-section" aria-label="Intel sustainability timeline from 1968 to 2024">
 
     <!-- Card 1: 1968 -->
     <div>
@@ -147,9 +150,11 @@
   <p>Scroll to view timeline | Hover over cards to learn more!</p>
 
   <!-- Bootstrap Three-Column Section -->
-  <section class="container-fluid py-5" style="background-color: var(--intel-light);">
+  <section class="container-fluid py-5" style="background-color: var(--intel-light);" aria-label="Intel sustainability initiatives">
     <!-- Container centers content with max-width (responsive on mobile) -->
     <div class="container">
+      <!-- Section Heading for Accessibility -->
+      <h2 class="visually-hidden">Our Sustainability Initiatives</h2>
       <!-- Row creates a horizontal layout for columns -->
       <div class="row g-4">
         
@@ -157,7 +162,7 @@
         <!-- col-lg-4 = 1/3 width on large screens, col-md-12 = full width on tablets -->
         <div class="col-lg-4 col-md-12">
           <div class="p-4 bg-white rounded shadow-sm h-100">
-            <h2 class="text-primary mb-3">RISE Strategy</h2>
+            <h3 class="text-primary mb-3">RISE Strategy</h3>
             <p>
               Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy, 
               Intel sets ambitious 2030 goals, including driving industry-wide 
@@ -172,7 +177,7 @@
         <!-- col-lg-4 = 1/3 width on large screens, col-md-12 = full width on tablets -->
         <div class="col-lg-4 col-md-12">
           <div class="p-4 bg-white rounded shadow-sm h-100">
-            <h2 class="text-primary mb-3">Commitment</h2>
+            <h3 class="text-primary mb-3">Commitment</h3>
             <p>
               In 2022, Intel pledged to achieve net-zero greenhouse gas emissions 
               (Scope 1 and 2) by 2040. This commitment builds on decades of 
@@ -188,7 +193,7 @@
         <!-- col-lg-4 = 1/3 width on large screens, col-md-12 = full width on tablets -->
         <div class="col-lg-4 col-md-12">
           <div class="p-4 bg-white rounded shadow-sm h-100">
-            <h2 class="text-primary mb-3">Water &amp; Waste</h2>
+            <h3 class="text-primary mb-3">Water &amp; Waste</h3>
             <p>
               Intel conserves billions of gallons of water annually and 
               collaborates with local communities to restore watersheds.
@@ -204,7 +209,7 @@
   </section>
 
   <!-- Newsletter Subscription Section -->
-  <section class="container-fluid py-5" style="background: linear-gradient(135deg, var(--intel-blue) 0%, var(--intel-dark-blue) 100%);">
+  <section class="container-fluid py-5" style="background: linear-gradient(135deg, var(--intel-blue) 0%, var(--intel-dark-blue) 100%);" aria-label="Newsletter subscription">
     <!-- Container centers content -->
     <div class="container">
       <!-- Centered content wrapper -->
@@ -220,11 +225,11 @@
           </p>
 
           <!-- Newsletter Form -->
-          <form>
+          <form aria-label="Subscribe to Intel sustainability newsletter">
             <!-- Email Input Container -->
             <div class="mb-3">
               <!-- Email Label -->
-              <label for="email-input" class="form-label text-white">Email Address</label>
+              <label for="email-input" class="form-label text-white">Email Address <span aria-label="required">*</span></label>
               
               <!-- Email Input Field -->
               <input 
@@ -232,8 +237,10 @@
                 class="form-control" 
                 id="email-input" 
                 placeholder="Enter your email address"
+                aria-describedby="email-help"
                 required
               />
+              <small id="email-help" class="d-block text-white-50 mt-1">We'll never share your email with anyone.</small>
             </div>
 
             <!-- Subscribe Button -->
@@ -243,7 +250,7 @@
           </form>
 
           <!-- Privacy Notice -->
-          <p class="text-white-50 small mt-3">
+          <p class="text-white small mt-3" style="color: rgba(255, 255, 255, 0.85);">
             We respect your privacy. Unsubscribe at any time.
           </p>
         </div>
@@ -336,5 +343,7 @@
       </div>
     </div>
   </footer>
+
+  </main>
 </body>
 </html>
