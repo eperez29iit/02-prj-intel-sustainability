@@ -6,7 +6,135 @@
   <title>Intel: Sustainability Through the Ages</title>
   <!-- Bootstrap CSS for responsive grid system and RTL support -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap RTL CSS (loaded conditionally via JavaScript) -->
+  <link id="bootstrap-rtl-link" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" media="none" />
   <link rel="stylesheet" href="style.css" />
+  
+  <!-- Language Detection & RTL Support Script -->
+  <script>
+    /**
+     * RTL Language Detection & Auto-Adjustment
+     * Detects language changes and applies RTL layout automatically
+     */
+    
+    // RTL language codes
+    const RTL_LANGUAGES = [
+      'ar',   // Arabic
+      'ar-aa', 'ar-ae', 'ar-bh', 'ar-dz', 'ar-eg', 'ar-iq', 'ar-jo', 'ar-kw',
+      'ar-lb', 'ar-ly', 'ar-ma', 'ar-om', 'ar-qa', 'ar-sa', 'ar-sy', 'ar-tn',
+      'ar-ye', // Arabic variants
+      'he',   // Hebrew
+      'fa',   // Persian
+      'ur',   // Urdu
+      'yi',   // Yiddish
+      'iw'    // Hebrew (alternative code)
+    ];
+
+    /**
+     * Check if a language is RTL
+     * @param {string} langCode - Language code to check
+     * @returns {boolean} True if language is RTL
+     */
+    function isRTLLanguage(langCode) {
+      // Normalize language code to lowercase
+      const normalizedLang = (langCode || '').toLowerCase();
+      
+      // Check if exact match or starts with RTL language code
+      return RTL_LANGUAGES.some(rtlLang => 
+        normalizedLang === rtlLang || normalizedLang.startsWith(rtlLang + '-')
+      );
+    }
+
+    /**
+     * Get current document language
+     * @returns {string} Language code
+     */
+    function getCurrentLanguage() {
+      // Check HTML lang attribute first
+      const htmlLang = document.documentElement.lang;
+      if (htmlLang) return htmlLang;
+      
+      // Fallback to navigator language
+      return navigator.language || navigator.userLanguage || 'en';
+    }
+
+    /**
+     * Apply RTL or LTR layout
+     * @param {boolean} isRTL - Whether to apply RTL
+     */
+    function applyDirectionLayout(isRTL) {
+      const htmlElement = document.documentElement;
+      
+      if (isRTL) {
+        // Apply RTL
+        htmlElement.setAttribute('dir', 'rtl');
+        // Enable Bootstrap RTL CSS
+        const rtlLink = document.getElementById('bootstrap-rtl-link');
+        if (rtlLink) rtlLink.media = 'all';
+      } else {
+        // Apply LTR
+        htmlElement.removeAttribute('dir');
+        // Disable Bootstrap RTL CSS
+        const rtlLink = document.getElementById('bootstrap-rtl-link');
+        if (rtlLink) rtlLink.media = 'none';
+      }
+    }
+
+    /**
+     * Initialize language and apply RTL if needed
+     */
+    function initializeLanguageLayout() {
+      const currentLang = getCurrentLanguage();
+      const shouldBeRTL = isRTLLanguage(currentLang);
+      applyDirectionLayout(shouldBeRTL);
+    }
+
+    /**
+     * Monitor for language changes (Google Translate, language switcher, etc.)
+     */
+    function monitorLanguageChanges() {
+      // Use MutationObserver to detect HTML lang attribute changes
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {
+            // Language changed, update layout
+            const newLang = document.documentElement.lang;
+            const shouldBeRTL = isRTLLanguage(newLang);
+            applyDirectionLayout(shouldBeRTL);
+          }
+        });
+      });
+
+      // Observe HTML element for lang attribute changes
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['lang']
+      });
+
+      // Also monitor for Google Translate toolbar changes
+      setInterval(() => {
+        const currentLang = getCurrentLanguage();
+        const shouldBeRTL = isRTLLanguage(currentLang);
+        const isCurrentlyRTL = document.documentElement.dir === 'rtl';
+        
+        // Update if direction doesn't match language
+        if (shouldBeRTL !== isCurrentlyRTL) {
+          applyDirectionLayout(shouldBeRTL);
+        }
+      }, 500);
+    }
+
+    // Initialize on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        initializeLanguageLayout();
+        monitorLanguageChanges();
+      });
+    } else {
+      initializeLanguageLayout();
+      monitorLanguageChanges();
+    }
+  </script>
 </head>
 <body>
 

@@ -282,6 +282,16 @@ body > p {
    RESPONSIVE DESIGN
    ============================================ */
 
+/* RTL Support for gradients and directional properties */
+[dir="rtl"] header {
+  /* Mirror gradient direction for RTL */
+  background: linear-gradient(225deg, var(--intel-dark-blue) 0%, var(--intel-blue) 100%);
+}
+
+[dir="rtl"] .container-fluid[style*="linear-gradient"] {
+  /* This will be handled by Bootstrap RTL CSS */
+}
+
 @media (max-width: 768px) {
   /* Adjust header for smaller screens */
   header {
